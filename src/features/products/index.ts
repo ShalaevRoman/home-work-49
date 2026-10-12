@@ -1,0 +1,6 @@
+export { fetchCategories, fetchProductById, fetchProducts, setSelectedCategory, clearCurrentProduct } from './model/productsSlice'
+export { default as productsReducer } from './model/productsSlice'
+export type { Product, ProductsState, RequestStatus } from './model/types'
+export { ProductCard } from './components/ProductCard'
+export { ProductFilters } from './components/ProductFilters'
+export { ProductList } from './components/ProductList'

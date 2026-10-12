@@ -1,0 +1,5 @@
+export { addItem, clearCart, decrementQuantity, incrementQuantity, removeItem } from './model/cartSlice'
+export { default as cartReducer } from './model/cartSlice'
+export { getCartItemsCount, getCartTotal } from './lib/helpers'
+export type { CartItem, CartState } from './model/types'
+export { CartItem as CartItemRow } from './components/CartItem'
