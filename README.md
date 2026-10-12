@@ -52,5 +52,5 @@ src/
 
 ## Посилання на проєкт
 
-- Демо: _буде додано після деплою_
+- Демо: https://home-work-49-five.vercel.app
 - GitHub: https://github.com/ShalaevRoman/home-work-49
