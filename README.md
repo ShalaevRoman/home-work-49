@@ -1,32 +1,56 @@
-# React + TypeScript + Vite
+# ShopKit
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Курсовий проєкт з React та Redux Toolkit — демонстраційний інтернет-магазин. Товари підтягуються з публічного API [Fake Store API](https://fakestoreapi.com), решта функціоналу (кошик, авторизація, замовлення) реалізована на фронтенді з прицілом на подальшу інтеграцію з власним бекендом.
 
-Currently, two official plugins are available:
+## Можливості
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Перегляд товарів з фільтрацією за категоріями ([Fake Store API](https://fakestoreapi.com))
+- Сторінка деталей товару
+- Кошик покупок (додавання, зміна кількості, видалення, збереження між сесіями)
+- Реєстрація / вхід / вихід
+- Оформлення замовлення та історія замовлень (доступні лише авторизованим користувачам)
 
-## React Compiler
+## Стек
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Redux Toolkit (slices, async thunks) + react-redux
+- React Router
+- Vite
+- axios
 
-## Expanding the Oxlint configuration
+## Встановлення та запуск
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Проєкт буде доступний на `http://localhost:5173`.
+
+Інші команди:
+
+```bash
+npm run build    # production-збірка
+npm run preview  # перегляд production-збірки локально
+npm run lint      # перевірка лінтером (oxlint)
+```
+
+## Структура проєкту
+
+Архітектура побудована за принципом feature-sliced:
+
+```
+src/
+├── app/        # Redux store, типізовані хуки
+├── components/ # Перевикористовувані UI-компоненти без бізнес-логіки
+├── features/   # Функціональні модулі: products, cart, auth, orders
+├── layouts/    # Шаблони сторінок (Header + Outlet + Footer)
+├── pages/      # Сторінки, що компонують features
+├── routes/     # Налаштування роутингу, захищені маршрути
+└── services/   # HTTP-клієнт (axios) та робота з localStorage
+```
+
+## Посилання на проєкт
+
+- Демо: _буде додано після деплою_
+- GitHub: https://github.com/ShalaevRoman/home-work-49
